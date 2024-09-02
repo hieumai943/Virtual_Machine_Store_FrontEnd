@@ -12,15 +12,12 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        < Navbar>
+        < Navbar />
           <Routes>
-            <Route path="/" component={Home} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/login" component={LoginSignup} />
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<LoginSignup />} />
           </Routes>
-        </Navbar>
-        <NewsLetter>
-        </NewsLetter>
         <Footer/>
       </BrowserRouter>
 
