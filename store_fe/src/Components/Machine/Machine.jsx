@@ -1,9 +1,12 @@
 import React from "react";
+import './Machine.css';
+import { Link } from 'react-router-dom';
 
 export const Machine = (props) => {
     return (
         <div className="item">
-            <img src={props.image} alt="" style={{width: '40vw'}}/>
+            <Link to={`/machine/${props.id}`}><img src={props.image} alt="" style={{width: '30vw'}}/></Link>
+            
             <p>{props.name}</p>
             <div className="item-prices">
                 <div className="item-price-new">

@@ -1,6 +1,5 @@
 .item{
-    /* width: 350px; */
-    cursor: pointer;
+    width: 350px;
 }
 .item p{
     margin: 6px 0px;
@@ -13,7 +12,7 @@
 .item-price-new{
     color: #374151;
     font-size: 18px;
-    font-weight: 700
+    font-weight: 700;
 }
 .item-price-old{
     color: #8c8c8c;

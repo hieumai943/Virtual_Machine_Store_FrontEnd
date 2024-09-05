@@ -7,6 +7,7 @@ import { Navbar } from './Components/Navbar/Navbar';
 import {Cart} from './Components/Cart/Cart';
 import {NewsLetter} from './Components/NewsLetter/NewsLetter';
 import { Footer } from './Components/Footer/Footer';
+import { MachineDetail } from './Components/Machine_Detail/MachineDetail';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/machine" element={<MachineDetail />} />
+            <Route path="/machine/:machineId" element={<MachineDetail />} />
             <Route path="/login" element={<LoginSignup />} />
           </Routes>
         <Footer/>
