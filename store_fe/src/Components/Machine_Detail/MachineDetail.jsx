@@ -7,9 +7,7 @@ import { MachineDisplay } from "../MachineDisplay/MachineDisplay";
 
 export const MachineDetail = () => {
     const {machineId} = useParams();
-    console.log("hieu oiw" + machineId);
     const machine = all_machine.find((machine) => machine.id === parseInt(machineId)); // Ensure machineId is an integer
-    console.log("Machine:", machine);
     return (
         <div>
             <BreadCrums machine = {machine}/>

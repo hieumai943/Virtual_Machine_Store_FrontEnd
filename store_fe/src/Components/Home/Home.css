@@ -11,7 +11,7 @@
     color: #171717;
 }
 .popular hr{
-    width: 200px;
+    width: 100px;
     height: 6px;
     border-radius: 10px;
     background-color: #252525;
@@ -20,4 +20,17 @@
     display: flex;
     margin-top: 50px;
     gap: 30px;
+}
+.createNewVM{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 3vw;
+    cursor: pointer;
+}
+.createNewVM h2{
+    margin-left: 10px;
+}
+.createNewVM img{
+    width: 1.5vw;
 }
