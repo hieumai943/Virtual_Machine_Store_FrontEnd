@@ -1,7 +1,7 @@
 import React from "react";
 import './Machine.css';
 import { Link } from 'react-router-dom';
-
+// machine nay la show ra tat ca cac machine dang co trong store
 export const Machine = (props) => {
     return (
         <div className="item">

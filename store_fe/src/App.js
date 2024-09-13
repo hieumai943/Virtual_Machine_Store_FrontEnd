@@ -8,6 +8,7 @@ import {Cart} from './Components/Cart/Cart';
 import {NewsLetter} from './Components/NewsLetter/NewsLetter';
 import { Footer } from './Components/Footer/Footer';
 import { MachineDetail } from './Components/Machine_Detail/MachineDetail';
+import { MachineCreate } from './Components/Machine_Create/MachineCreate';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/machine" element={<MachineDetail />} />
+            <Route path="/create/machine" element={<MachineCreate/>} />
             <Route path="/machine/:machineId" element={<MachineDetail />} />
             <Route path="/login" element={<LoginSignup />} />
           </Routes>
