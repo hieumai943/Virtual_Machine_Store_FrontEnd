@@ -17,8 +17,8 @@ export const Navbar = () => {
       </ul>
       <div className="nav-login-cart">
         <Link  style={{textDecoration: 'none'}} to='/login'><button>Login</button></Link>
-        <Link  style={{textDecoration: 'none'}} to='/cart'><img src={cart_icon}></img></Link>
-        <div className='nav-cart-count'>0</div>
+        {/* <Link  style={{textDecoration: 'none'}} to='/cart'><img src={cart_icon}></img></Link> */}
+        {/* <div className='nav-cart-count'>0</div> */}
       </div>
     </div>
   );

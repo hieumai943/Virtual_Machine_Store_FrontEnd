@@ -3,6 +3,8 @@ import { StoreContext } from '../Context/StoreContext';
 import { Machine } from '../Machine/Machine';
 import { all_machine } from '../Assets/all_machine';
 import { NewsLetter } from '../NewsLetter/NewsLetter';
+import { Link } from 'react-router-dom';
+
 import './Home.css';
 import axios from 'axios';
 const addicon = require('../Assets/add.png');
@@ -11,7 +13,7 @@ export const Home = (props) => {
     <div>
       <div className="createNewVM">
         <img src = {addicon}  />
-        <h2>Create a new VM</h2>
+        <Link to={`/create/machine`}><h2>Create a new VM</h2></Link>
       </div>
       <div className='popular'>
         <h2>Sample machines</h2>
