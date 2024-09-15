@@ -2,13 +2,14 @@ import React, { memo, useState } from 'react';
 import './MachineCreate.css';
 import axios from 'axios';
 import machineScreen from '../Assets/machine_1.png';
-
+import { Link } from 'react-router-dom';
 export const MachineCreate = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [ram, setRam] = useState('');
   const [cpu, setCpu] = useState('');
   const [memory, setMemory] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,21 +24,14 @@ export const MachineCreate = () => {
         });
         
         console.log('API response:', response.data);
-        // Xử lý phản hồi thành công ở đây (ví dụ: hiển thị thông báo thành công)
+        setShowPopup(true); 
       } catch (error) {
         if (error.response) {
-          // Yêu cầu được thực hiện và máy chủ trả về mã trạng thái
-          // nằm ngoài phạm vi 2xx
           console.error('API request failed:', error.response.data);
-          // Xử lý lỗi ở đây (ví dụ: hiển thị thông báo lỗi)
         } else if (error.request) {
-          // Yêu cầu được thực hiện nhưng không nhận được phản hồi
           console.error('No response received:', error.request);
-          // Xử lý lỗi mạng ở đây
         } else {
-          // Có lỗi xảy ra khi thiết lập yêu cầu
           console.error('Error:', error.message);
-          // Xử lý các lỗi khác ở đây
         }
       }
     };
@@ -100,10 +94,18 @@ export const MachineCreate = () => {
                         required
                         />
                     </div>
-                    <button type="submit" >
+                    <button type="submit" >SUBMIT
                     </button>
                 </form>
             </div>
+            {showPopup && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <p>Machine created successfully!</p>
+                        <Link to={`/home`}><button onClick={() => setShowPopup(false)}>Close</button></Link>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
