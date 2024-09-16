@@ -10,6 +10,7 @@ import axios from 'axios';
 const addicon = require('../Assets/add.png');
 export const Home = (props) => {
   const [myAllMachine, setMyAllMachine] = useState([]);
+  const [sampleMachine, setSampleMachine] = useState([]);
 
   useEffect(() => {
     const fetchMachines = async () => {
@@ -19,8 +20,11 @@ export const Home = (props) => {
             'Content-Type': 'application/json',
           },
         });
-        if (Array.isArray(response.data.data)) {
-          setMyAllMachine(response.data.data);
+        if (Array.isArray(response.data.data) ) {
+          const filteredMyData = response.data.data.filter(machine => !machine.isSample);
+          const filteredSampleData = response.data.data.filter(machine => machine.isSample);
+          setMyAllMachine(filteredMyData);
+          setSampleMachine(filteredSampleData);
         } else {
           console.error('API response is not an array:', response.data.data);
         }
@@ -49,7 +53,7 @@ export const Home = (props) => {
         <hr />
         <div className="popular-item">
           {myAllMachine.map((machine, i) => {
-            return <Machine key={i} id={machine.id} name={machine.name} description = {machine.description} image={machine.imgSrc}  />
+            return <Machine key={i} id={machine.id} name={machine.name} description = {machine.description} image={machine.imgSrc} oldPrice ={machine.oldPrice} newPrice = {machine.newPrice} />
           })}
         </div>
       </div>
@@ -57,8 +61,9 @@ export const Home = (props) => {
         <h2>Sample machines</h2>
         <hr />
         <div className="popular-item">
-          {all_machine.map((machine, i) => {
-            return <Machine key={i} id={machine.id} name={machine.name} image={machine.image} new_price={machine.new_price} old_price={machine.old_price} />
+          {sampleMachine.map((machine, i) => {
+            // return <Machine key={i} id={machine.id} name={machine.name} image={machine.image} new_price={machine.new_price} old_price={machine.old_price} />
+            return <Machine key={i} id={machine.id} name={machine.name} description = {machine.description} image={machine.imgSrc} oldPrice ={machine.oldPrice} newPrice = {machine.newPrice} />
           })}
         </div>
       </div>

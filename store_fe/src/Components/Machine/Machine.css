@@ -25,3 +25,7 @@
     transform: scale(1.05);
     transition: 0.6s;
 }
+.title{
+    /* Q: i want it bold */
+    font-weight: 600;
+}
