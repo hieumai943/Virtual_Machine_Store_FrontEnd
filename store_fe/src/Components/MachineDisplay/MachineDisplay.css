@@ -1,6 +1,6 @@
 .productdisplay{
     display: flex;
-    margin: 0px 170px;
+    margin: 10vh 170px;
 }
 .productdisplay-left{
     display: flex;
@@ -18,7 +18,7 @@
     width: 586px;
 }
 .productdisplay-right{
-    margin: 0 70px;
+    margin: 0 180px;
     display: flex;
     flex-direction: column;
 }
@@ -26,4 +26,19 @@
     color: #3d3d3d;
     font-size: 40px;
     font-weight: 700;
+    margin: 0;
+}
+.productdisplay-right button{
+    background-color: #3d3d3d;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.productdisplay-right button:hover{
+    background-color: #2d2d2d;
 }

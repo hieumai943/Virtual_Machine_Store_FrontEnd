@@ -37,10 +37,6 @@ export const MachineDetail = () => {
           <>
             <BreadCrums
               name={machine.name}
-              description={machine.description}
-              image={machine.imgSrc}
-              oldPrice={machine.oldPrice}
-              newPrice={machine.newPrice}
             />
             <MachineDisplay
               name={machine.name}
@@ -48,6 +44,9 @@ export const MachineDetail = () => {
               image={machine.imgSrc}
               oldPrice={machine.oldPrice}
               newPrice={machine.newPrice}
+              ram={machine.ram}
+              coreCpu={machine.coreCpu}
+              memory={machine.memory}
             />
           </>
         ) : (
