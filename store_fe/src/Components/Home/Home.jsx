@@ -4,11 +4,36 @@ import { Machine } from '../Machine/Machine';
 import { all_machine } from '../Assets/all_machine';
 import { NewsLetter } from '../NewsLetter/NewsLetter';
 import { Link } from 'react-router-dom';
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import './Home.css';
 import axios from 'axios';
 const addicon = require('../Assets/add.png');
 export const Home = (props) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   const [myAllMachine, setMyAllMachine] = useState([]);
   const [sampleMachine, setSampleMachine] = useState([]);
 
@@ -52,19 +77,40 @@ export const Home = (props) => {
         <h2>Your machines</h2>
         <hr />
         <div className="popular-item">
-          {myAllMachine.map((machine, i) => {
-            return <Machine key={i} id={machine.id} name={machine.name} description = {machine.description} image={machine.imgSrc} oldPrice ={machine.oldPrice} newPrice = {machine.newPrice} />
-          })}
-        </div>
+      <Slider {...settings}>
+        {myAllMachine .map((machine, i) => (
+          <div key={i}>
+            <Machine
+              id={machine.id}
+              name={machine.name}
+              description={machine.description}
+              image={machine.imgSrc}
+              oldPrice={machine.oldPrice}
+              newPrice={machine.newPrice}
+            />
+          </div>
+        ))}
+      </Slider>
+    </div>
       </div>
       <div className='popular'>
         <h2>Sample machines</h2>
         <hr />
         <div className="popular-item">
-          {sampleMachine.map((machine, i) => {
-            // return <Machine key={i} id={machine.id} name={machine.name} image={machine.image} new_price={machine.new_price} old_price={machine.old_price} />
-            return <Machine key={i} id={machine.id} name={machine.name} description = {machine.description} image={machine.imgSrc} oldPrice ={machine.oldPrice} newPrice = {machine.newPrice} />
-          })}
+        <Slider {...settings}>
+        {sampleMachine .map((machine, i) => (
+          <div key={i}>
+            <Machine
+              id={machine.id}
+              name={machine.name}
+              description={machine.description}
+              image={machine.imgSrc}
+              oldPrice={machine.oldPrice}
+              newPrice={machine.newPrice}
+            />
+          </div>
+        ))}
+      </Slider>
         </div>
       </div>
       <div>

@@ -7,14 +7,15 @@ export const MachineCreate = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [ram, setRam] = useState('');
-  const [cpu, setCpu] = useState('');
+  const [core_cpu, setCpu] = useState('');
   const [memory, setMemory] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const data = { name, description, ram, cpu, memory };
+    setError(null);
+    const data = { name, description, ram, core_cpu, memory };
     
     try {
         const response = await axios.post('http://localhost:8080/machine/create', data, {
@@ -26,13 +27,9 @@ export const MachineCreate = () => {
         console.log('API response:', response.data);
         setShowPopup(true); 
       } catch (error) {
-        if (error.response) {
-          console.error('API request failed:', error.response.data);
-        } else if (error.request) {
-          console.error('No response received:', error.request);
-        } else {
-          console.error('Error:', error.message);
-        }
+        console.log(error)
+        setError(error.response.data.message);
+        setShowPopup(true);
       }
     };
     return (
@@ -79,7 +76,7 @@ export const MachineCreate = () => {
                         <input
                         type="text"
                         id="cpu"
-                        value={cpu}
+                        value={core_cpu}
                         onChange={(e) => setCpu(e.target.value)}
                         required
                         />
@@ -99,13 +96,22 @@ export const MachineCreate = () => {
                 </form>
             </div>
             {showPopup && (
-                <div className="popup">
-                    <div className="popup-content">
-                        <p>Machine created successfully!</p>
-                        <Link to={`/`}><button onClick={() => setShowPopup(false)}>Close</button></Link>
-                    </div>
-                </div>
+        <div className="popup">
+          <div className="popup-content">
+            {error ? (
+              <>
+                <p>{error}</p>
+                <button onClick={() => setShowPopup(false)}>Close</button>
+              </>
+            ) : (
+              <>
+                <p>Machine created successfully!</p>
+                <Link to={`/`}><button onClick={() => setShowPopup(false)}>Close</button></Link>
+              </>
             )}
+          </div>
+        </div>
+      )}
         </div>
     );
 };

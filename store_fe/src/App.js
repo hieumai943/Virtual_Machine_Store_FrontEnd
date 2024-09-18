@@ -10,6 +10,7 @@ import { Footer } from './Components/Footer/Footer';
 import { MachineDetail } from './Components/Machine_Detail/MachineDetail';
 import { MachineCreate } from './Components/Machine_Create/MachineCreate';
 
+
 function App() {
   return (
     <div>

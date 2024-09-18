@@ -1,8 +1,11 @@
 import React from "react";
 import './Machine.css';
 import { Link } from 'react-router-dom';
+
+
 // machine nay la show ra tat ca cac machine dang co trong store
 export const Machine = (props) => {
+    
     return (
         <div className="item">
             <Link to={`/machine/${props.id}`}><img src={props.image} alt="" style={{width: '30vw'}}/></Link>
