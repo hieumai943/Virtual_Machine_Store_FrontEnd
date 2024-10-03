@@ -9,6 +9,7 @@ import {NewsLetter} from './Components/NewsLetter/NewsLetter';
 import { Footer } from './Components/Footer/Footer';
 import { MachineDetail } from './Components/Machine_Detail/MachineDetail';
 import { MachineCreate } from './Components/Machine_Create/MachineCreate';
+import { Payment } from './Components/Payment/Payment';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/create/machine" element={<MachineCreate/>} />
             <Route path="/machine/:machineId" element={<MachineDetail />} />
             <Route path="/login" element={<LoginSignup />} />
+            <Route path="/machine/:machineId/payment" element={<Payment  />} />
           </Routes>
         <Footer/>
       </BrowserRouter>

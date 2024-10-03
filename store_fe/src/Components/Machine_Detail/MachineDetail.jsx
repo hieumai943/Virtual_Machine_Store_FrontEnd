@@ -8,10 +8,10 @@ import axios from 'axios';
 export const MachineDetail = () => {
     const {machineId} = useParams();
     const [machine, setMachine] = useState(null);
-    useEffect(() => {
+  useEffect(() => {
         const fetchMachines = async () => {
           try {
-            const response = await axios.get('http://localhost:8080/machine/'+machineId, {
+            const response = await axios.get(`http://localhost:8082/machine/`+machineId, {
               headers: {
                 'Content-Type': 'application/json',
               },
@@ -39,6 +39,7 @@ export const MachineDetail = () => {
               name={machine.name}
             />
             <MachineDisplay
+              id={machine.id}
               name={machine.name}
               description={machine.description}
               image={machine.imgSrc}

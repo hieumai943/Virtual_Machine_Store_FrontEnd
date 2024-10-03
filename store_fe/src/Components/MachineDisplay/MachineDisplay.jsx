@@ -1,5 +1,6 @@
 import React from "react";
 import './MachineDisplay.css';
+import { Link } from 'react-router-dom';
 
 export const MachineDisplay = (props) => {
     return (
@@ -20,7 +21,7 @@ export const MachineDisplay = (props) => {
                 <div  style={{margin: '1vh 0'}} className="cpu"><span style={{fontWeight: '600'}}>CPU:  </span>{props.coreCpu} CORE </div>
                 <div  style={{margin: '1vh 0'}} className="memory"><span style={{fontWeight: '600'}}>MEMORY:  </span>{props.memory} GB </div>
                
-                <button>ADD TO CART</button>
+                <Link to={`/machine/${props.id}/payment`}><button>ADD TO CART</button></Link>
             </div>
        </div>
     );

@@ -25,7 +25,7 @@ export const LoginSignup = () => {
     };
 
     // Send POST request to the API
-    axios.post('http://localhost:8080/register',
+    axios.post(`http://localhost:8082/register`,
       payload,
       {
 

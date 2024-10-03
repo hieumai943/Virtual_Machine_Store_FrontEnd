@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './Home.css';
 import axios from 'axios';
 const addicon = require('../Assets/add.png');
-export const Home = (props) => {
+  export const Home = (props) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -38,9 +38,9 @@ export const Home = (props) => {
   const [sampleMachine, setSampleMachine] = useState([]);
 
   useEffect(() => {
-    const fetchMachines = async () => {
+  const fetchMachines = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/machine/list', {
+        const response = await axios.get("http://localhost:8082/machine/list", {
           headers: {
             'Content-Type': 'application/json',
           },

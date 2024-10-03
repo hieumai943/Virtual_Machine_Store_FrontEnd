@@ -4,7 +4,7 @@ import axios from 'axios';
 import machineScreen from '../Assets/machine_1.png';
 import { Link } from 'react-router-dom';
 export const MachineCreate = () => {
-    const [name, setName] = useState('');
+  const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [ram, setRam] = useState('');
   const [core_cpu, setCpu] = useState('');
@@ -18,7 +18,7 @@ export const MachineCreate = () => {
     const data = { name, description, ram, core_cpu, memory };
     
     try {
-        const response = await axios.post('http://localhost:8080/machine/create', data, {
+        const response = await axios.post(`http://localhost:8082/machine/create`, data, {
           headers: {
             'Content-Type': 'application/json',
           },
