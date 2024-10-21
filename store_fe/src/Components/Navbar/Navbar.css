@@ -24,20 +24,12 @@
     font-size: 20px;
     font-weight: 500;
 }
-.nav-menu li{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
+.nav-menu li {
     cursor: pointer;
 }
-.nav-menu hr{
-    border: none;
-    width: 80%;
-    height: 3px;
-    border-radius: 10px;
-    background-color: #ff4141;
+
+.nav-menu li.active {
+    color: #ff0000; /* Màu sắc khi được chọn */
 }
 .nav-login-cart{
     display: flex;
@@ -72,4 +64,7 @@
     font-size: 14px;
     background-color: red;
     color: white;
+}
+.nav-logo img{
+    width: 5vw;
 }

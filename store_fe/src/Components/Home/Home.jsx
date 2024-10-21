@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { StoreContext } from '../Context/StoreContext';
 import { Machine } from '../Machine/Machine';
 import { all_machine } from '../Assets/all_machine';
@@ -10,29 +10,18 @@ import "slick-carousel/slick/slick-theme.css";
 import './Home.css';
 import axios from 'axios';
 const addicon = require('../Assets/add.png');
+const left_arrow = require('../Assets/left-arrow.png');
+const right_arrow = require('../Assets/right-arrow.png');
   export const Home = (props) => {
+    const sliderRef = useRef(null);
+    const sliderRef1 = useRef(null);
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+    slidesToScroll: 1,
+    arrows: false, // Tắt mũi tên mặc định
   };
   const [myAllMachine, setMyAllMachine] = useState([]);
   const [sampleMachine, setSampleMachine] = useState([]);
@@ -75,42 +64,47 @@ const addicon = require('../Assets/add.png');
       </div>
       <div className='popular'>
         <h2>Your machines</h2>
-        <hr />
         <div className="popular-item">
-      <Slider {...settings}>
-        {myAllMachine .map((machine, i) => (
-          <div key={i}>
-            <Machine
-              id={machine.id}
-              name={machine.name}
-              description={machine.description}
-              image={machine.imgSrc}
-              oldPrice={machine.oldPrice}
-              newPrice={machine.newPrice}
-            />
-          </div>
-        ))}
-      </Slider>
-    </div>
+        <div className="slider-container">
+            <button className="prev-button" onClick={() => sliderRef.current.slickPrev()}><img src = {left_arrow}></img></button>
+            <Slider ref={sliderRef} {...settings}>
+                {myAllMachine.map((machine, i) => (
+                    <div key={i}>
+                        <Machine
+                            id={machine.id}
+                            name={machine.name}
+                            description={machine.description}
+                            image={machine.imgSrc}
+                            oldPrice={machine.oldPrice}
+                            newPrice={machine.newPrice}
+                        />
+                    </div>
+                ))}
+            </Slider>
+            <button className="next-button" onClick={() => sliderRef.current.slickNext()}><img src = {right_arrow}></img></button>
+        </div>
+        <hr className='lineHR' />
+        </div>
       </div>
       <div className='popular'>
         <h2>Sample machines</h2>
-        <hr />
         <div className="popular-item">
-        <Slider {...settings}>
-        {sampleMachine .map((machine, i) => (
-          <div key={i}>
-            <Machine
-              id={machine.id}
-              name={machine.name}
-              description={machine.description}
-              image={machine.imgSrc}
-              oldPrice={machine.oldPrice}
-              newPrice={machine.newPrice}
-            />
-          </div>
-        ))}
-      </Slider>
+            <button className="prev-button-1" onClick={() => sliderRef1.current.slickPrev()}><img src = {left_arrow}></img></button>
+            <Slider ref={sliderRef1} {...settings}>
+                {sampleMachine.map((machine, i) => (
+                    <div key={i}>
+                        <Machine
+                            id={machine.id}
+                            name={machine.name}
+                            description={machine.description}
+                            image={machine.imgSrc}
+                            oldPrice={machine.oldPrice}
+                            newPrice={machine.newPrice}
+                        />
+                    </div>
+                ))}
+            </Slider>
+            <button className="next-button-1" onClick={() => sliderRef1.current.slickNext()}><img src = {right_arrow}></img></button>
         </div>
       </div>
       <div>

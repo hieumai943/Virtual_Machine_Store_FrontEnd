@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 
-const footer_logo = require('../Assets/xpra.png') 
+const footer_logo = require('../Assets/hieuhieu.jpg') 
 const instagram_logo = require('../Assets/instagram_icon.png') 
 const linkedln_logo = require('../Assets/linkedin.png') 
 const whatsapp_logo = require('../Assets/whatsapp_icon.png') 
@@ -11,7 +11,7 @@ export const Footer = () => {
         <div className='footer'>
             <div className="footer-logo">
                 <img src={footer_logo} alt="" />
-                <span>Virtual machine store</span>
+                <h2> VIRTUAL MACHINE STORE</h2>
             </div>
             <ul className="footer-links">
                 <li>Company</li>

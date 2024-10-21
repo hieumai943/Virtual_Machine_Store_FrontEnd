@@ -3,6 +3,10 @@ import './MachineDisplay.css';
 import { Link } from 'react-router-dom';
 
 export const MachineDisplay = (props) => {
+    const handleAddToCart = () => {
+        localStorage.setItem('coreCpu', props.coreCpu);
+        localStorage.setItem('memory', props.memory);
+    };
     return (
        <div className="productdisplay">
             <div className="productdisplay-left">
@@ -21,7 +25,11 @@ export const MachineDisplay = (props) => {
                 <div  style={{margin: '1vh 0'}} className="cpu"><span style={{fontWeight: '600'}}>CPU:  </span>{props.coreCpu} CORE </div>
                 <div  style={{margin: '1vh 0'}} className="memory"><span style={{fontWeight: '600'}}>MEMORY:  </span>{props.memory} GB </div>
                
-                <Link to={`/machine/${props.id}/payment`}><button>ADD TO CART</button></Link>
+                <Link 
+                to={`/machine/${props.id}/payment`}
+                onClick={handleAddToCart} >
+                <button>ADD TO CART</button>
+                 </Link>
             </div>
        </div>
     );
