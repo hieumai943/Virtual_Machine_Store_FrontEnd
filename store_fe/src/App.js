@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { LoginSignup } from './Components/LoginSignUp/LoginSignup';
+import { Login } from './Components/Login/Login';
+import { Register } from './Components/Register/Register';
 import { Home } from './Components/Home/Home';
 import { Navbar } from './Components/Navbar/Navbar';
 import {Cart} from './Components/Cart/Cart';
@@ -23,7 +24,8 @@ function App() {
             <Route path="/machine" element={<MachineDetail />} />
             <Route path="/create/machine" element={<MachineCreate/>} />
             <Route path="/machine/:machineId" element={<MachineDetail />} />
-            <Route path="/login" element={<LoginSignup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/machine/:machineId/payment" element={<Payment  />} />
           </Routes>
         <Footer/>
