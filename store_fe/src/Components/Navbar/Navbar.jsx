@@ -10,7 +10,7 @@ export const Navbar = () => {
   const [menu, setMenu] = useState("shop");
   return (
     <div className='navbar'>
-    <div className="nav-logo"><img src={logo}></img></div>
+    <Link to={"/"}><div className="nav-logo"><img src={logo}></img></div></Link>
     <ul className="nav-menu">
         <li 
             className={menu === "shop" ? "active" : ""}
