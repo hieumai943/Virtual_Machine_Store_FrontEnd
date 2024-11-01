@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }) => {
     })
     .then(data => {
       localStorage.setItem('token', data.data.token);
+      localStorage.setItem('role', data.data.role);
       setUser({ username, role: data.data.role });
       // Handle success (e.g., redirect to login page, show success message, etc.)
     })

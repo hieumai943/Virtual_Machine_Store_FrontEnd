@@ -13,6 +13,7 @@ import { MachineCreate } from './Components/Machine_Create/MachineCreate';
 import { Payment } from './Components/Payment/Payment';
 import { AuthProvider } from './Components/AuthContext/AuthContext';
 import { ContainerList } from './Components/ContainerList/ContainerList';
+import { Account } from './Components/Account/Account';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/machine/:machineId/payment" element={<Payment  />} />
             <Route path="/admin/container/list" element={<ContainerList  />} />
+            <Route path="/account" element={<Account  />} />
           </Routes>
         <Footer/>
       </BrowserRouter>

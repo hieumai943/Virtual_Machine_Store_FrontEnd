@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../AuthContext/AuthContext';
 import { useNavigate } from 'react-router-dom';
-
 const user_icon = require('../Assets/person.png');
 const email_icon = require('../Assets/email.png');
 const password_icon = require('../Assets/password.png');
@@ -33,8 +32,10 @@ export const Login = () => {
           clearInterval(checkUserInterval); // Clear the interval
           if (user.role === 'ADMIN') {
             navigate('/admin/container/list');
+            window.location.reload();
           } else {
             navigate('/');
+            window.location.reload();
           }
         } else {
           console.error('User role is not available');
