@@ -10,7 +10,7 @@ export const Navbar = () => {
   const [menu, setMenu] = useState("shop");
   return (
     <div className='navbar'>
-    <div className="nav-logo"><img src={logo}></img></div>
+    <Link to={"/"}><div className="nav-logo"><img src={logo}></img></div></Link>
     <ul className="nav-menu">
         <li 
             className={menu === "shop" ? "active" : ""}
@@ -29,6 +29,12 @@ export const Navbar = () => {
             onClick={() => setMenu("contact")}
         >
             <Link style={{ textDecoration: 'none' }} to='/contact'>CONTACT</Link>
+        </li>
+        <li 
+            className={menu === "container_list" ? "active" : ""}
+            onClick={() => setMenu("container_list")}
+        >
+            <Link style={{ textDecoration: 'none' }} to='/admin/container/list'>MACHINES MANAGE</Link>
         </li>
     </ul>
     <div className="nav-login-cart">

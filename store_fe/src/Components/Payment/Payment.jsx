@@ -33,7 +33,7 @@ export const Payment = () => {
     const handleSubmit = async () => {
         try {
                 // Gọi API thứ hai
-                const response = await axios.post("http://localhost:8082/change-auth", {
+                const response = await axios.post("http://localhost:8082/shop/change-auth", {
                 username,
                 password,
                 machineId,
@@ -57,7 +57,7 @@ export const Payment = () => {
                     memory_limit: memory,
                     port: extractedPort,
                 }
-                const response2 = await axios.put("http://localhost:8082/api/docker-compose/update", payload);
+                const response2 = await axios.put("http://localhost:8082/shop/docker-compose/update", payload);
                 console.log("API response2:", response2.data);
                 setIsAccountCreated(true);
             }

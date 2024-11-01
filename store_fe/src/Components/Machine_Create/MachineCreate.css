@@ -11,9 +11,9 @@
     flex-direction: column;
     gap: 16px;
 }
-.productdisplay-img-list img{
+/* .productdisplay-img-list img{
     height: 163px;
-}
+} */
 .productdisplay-main-img{
     width: 586px;
 }
@@ -50,6 +50,7 @@
 
 .productdisplay-right input[type="text"] {
     padding: 10px;
+    margin-top:10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
@@ -100,4 +101,15 @@
 
 .popup-content button:hover {
     background-color: #0056b3;
+}
+.ram-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.ram-input-container select {   
+    width: 100%;
+    padding: 5px;
+    margin-top:10px;
+    font-size: 16px;
 }

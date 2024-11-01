@@ -63,33 +63,54 @@ export const MachineCreate = () => {
                     </div>
                     <div>
                         <label htmlFor="ram">RAM:</label>
-                        <input 
-                            type="text"
-                            id="ram"
-                            value={ram}
-                            onChange={(e) => setRam(e.target.value)}
-                            required
-                        />
+                        <div className="ram-input-container">
+                            <select
+                                id="ram"
+                                value={ram}
+                                onChange={(e) => setRam(e.target.value)}
+                                required
+                            >
+                                <option value="">Select RAM</option>
+                                <option value="2">2 GB</option>
+                                <option value="4">4 GB</option>
+                                <option value="6">6 GB</option>
+                                <option value="8">8 GB</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="cpu">CORE CPU:</label>
-                        <input
-                        type="text"
-                        id="cpu"
-                        value={core_cpu}
-                        onChange={(e) => setCpu(e.target.value)}
-                        required
-                        />
+                        <div className="ram-input-container">
+                        <select
+                          id="cpu"
+                          value={core_cpu}
+                          onChange={(e) => setCpu(e.target.value)}
+                          required
+                        >
+                           <option value="">Select Core CPU</option>
+                          <option value="1">1 Core</option>
+                          <option value="2">2 Core</option>
+                          <option value="3">3 Core</option>
+                          <option value="4">4 Core</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="memory">MEMORY:</label>
-                        <input
-                        type="text"
+                        <div className="ram-input-container">
+                        <select
                         id="memory"
                         value={memory}
                         onChange={(e) => setMemory(e.target.value)}
                         required
-                        />
+                        >
+                            <option value="">Select Memory</option>
+                          <option value="4">4 GB</option>
+                          <option value="8">8 GB</option>
+                          <option value="12">12 GB</option>
+                          <option value="16">16 GB</option>
+                            </select>
+                            </div>
                     </div>
                     <button type="submit" >SUBMIT
                     </button>

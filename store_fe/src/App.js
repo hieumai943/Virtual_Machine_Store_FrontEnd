@@ -11,11 +11,14 @@ import { Footer } from './Components/Footer/Footer';
 import { MachineDetail } from './Components/Machine_Detail/MachineDetail';
 import { MachineCreate } from './Components/Machine_Create/MachineCreate';
 import { Payment } from './Components/Payment/Payment';
+import { AuthProvider } from './Components/AuthContext/AuthContext';
+import { ContainerList } from './Components/ContainerList/ContainerList';
 
 
 function App() {
   return (
     <div>
+      <AuthProvider>
       <BrowserRouter>
         < Navbar />
           <Routes>
@@ -27,9 +30,11 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/machine/:machineId/payment" element={<Payment  />} />
+            <Route path="/admin/container/list" element={<ContainerList  />} />
           </Routes>
         <Footer/>
       </BrowserRouter>
+      </AuthProvider>
 
     </div>
   );

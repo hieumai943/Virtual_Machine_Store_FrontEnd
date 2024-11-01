@@ -17,11 +17,12 @@ const right_arrow = require('../Assets/right-arrow.png');
     const sliderRef1 = useRef(null);
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false, // Tắt mũi tên mặc định
+    
   };
   const [myAllMachine, setMyAllMachine] = useState([]);
   const [sampleMachine, setSampleMachine] = useState([]);
@@ -29,7 +30,7 @@ const right_arrow = require('../Assets/right-arrow.png');
   useEffect(() => {
   const fetchMachines = async () => {
       try {
-        const response = await axios.get("http://localhost:8082/machine/list", {
+        const response = await axios.get("http://localhost:8082/shop/machine/list", {
           headers: {
             'Content-Type': 'application/json',
           },
@@ -37,6 +38,7 @@ const right_arrow = require('../Assets/right-arrow.png');
         if (Array.isArray(response.data.data) ) {
           const filteredMyData = response.data.data.filter(machine => !machine.isSample);
           const filteredSampleData = response.data.data.filter(machine => machine.isSample);
+
           setMyAllMachine(filteredMyData);
           setSampleMachine(filteredSampleData);
         } else {

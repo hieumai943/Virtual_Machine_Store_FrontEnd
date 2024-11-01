@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Register.css';
 import axios from 'axios';
 const user_icon = require('../Assets/person.png');
@@ -109,6 +110,9 @@ export const Register = () => {
         <div className='submmit-container'>
           <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => { handleRegister(); }}>Sign up</div>
         </div>
+        <div className='register'>You already had an account
+        <Link to='/login'><span >   Login here?</span></Link>
+          </div>
       </div>
     </div>
   );

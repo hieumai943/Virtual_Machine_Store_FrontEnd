@@ -11,7 +11,7 @@ export const MachineDetail = () => {
   useEffect(() => {
         const fetchMachines = async () => {
           try {
-            const response = await axios.get(`http://localhost:8082/machine/`+machineId, {
+            const response = await axios.get(`http://localhost:8082/shop/machine/`+machineId, {
               headers: {
                 'Content-Type': 'application/json',
               },
