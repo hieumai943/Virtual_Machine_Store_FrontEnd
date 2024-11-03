@@ -30,7 +30,8 @@ const right_arrow = require('../Assets/right-arrow.png');
   useEffect(() => {
   const fetchMachines = async () => {
       try {
-        const response = await axios.get("http://localhost:8082/shop/machine/list", {
+        const username = localStorage.getItem('username');
+        const response = await axios.get(`http://localhost:8082/shop/machine/list?username=${username}`, {
           headers: {
             'Content-Type': 'application/json',
           },

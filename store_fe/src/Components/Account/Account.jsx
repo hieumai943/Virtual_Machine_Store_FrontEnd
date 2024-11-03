@@ -5,7 +5,12 @@ import { jwtDecode } from 'jwt-decode';
 
 export const Account = (props) => {
     const [userInfo, setUserInfo] = useState(null);
-
+    const machines = [{
+      "id": 1,
+      "name": "Machine 1",
+      "type": "Type 1",
+      "status": "Active"
+    }]
     const decodeToken = (token) => {
         try {
           const decoded = jwtDecode(token);
@@ -41,16 +46,33 @@ export const Account = (props) => {
   
     return (
       <div className="account">
+      <div className="columns">
         {userInfo ? (
           <div className="user-info">
             <h2>User Information</h2>
+            <p><strong>Full name:</strong> {`${userInfo.firstName} ${userInfo.lastName}`}</p>
             <p><strong>Username:</strong> {userInfo.username}</p>
             <p><strong>Email:</strong> {userInfo.email}</p>
             <p><strong>Role:</strong> {userInfo.role}</p>
           </div>
         ) : (
-          <p>Loading user information...</p>
+          <div>Loading user information...</div>
         )}
+        <div className="machine-info">
+          <h2>Machine Information</h2>
+          {machines.length > 0 ? (
+            machines.map((machine, index) => (
+              <div key={index}>
+                <p><strong>Machine Name:</strong> {machine.name}</p>
+                <p><strong>Machine Type:</strong> {machine.type}</p>
+                <p><strong>Status:</strong> {machine.status}</p>
+              </div>
+            ))
+          ) : (
+            <div>Loading machine information...</div>
+          )}
+        </div>
       </div>
+    </div>
     );
   }

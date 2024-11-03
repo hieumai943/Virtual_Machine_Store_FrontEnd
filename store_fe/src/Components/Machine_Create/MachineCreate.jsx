@@ -15,10 +15,11 @@ export const MachineCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-    const data = { name, description, ram, core_cpu, memory };
+    const user_id = localStorage.getItem('user_id');
+    const data = { name, description, ram, core_cpu, memory , user_id};
     
     try {
-        const response = await axios.post(`http://localhost:8082/machine/create`, data, {
+        const response = await axios.post(`http://localhost:8082/shop/machine/create`, data, {
           headers: {
             'Content-Type': 'application/json',
           },

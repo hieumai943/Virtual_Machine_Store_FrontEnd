@@ -9,39 +9,30 @@ const email_icon = require('../Assets/email.png');
 const password_icon = require('../Assets/password.png');
 
 export const Login = () => {
-  const { login, user } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleLogIn = async (e) => {
+    setIsLoading(true);
+    setError('');
     // Collect form data
-    const   username = document.querySelector('input[placeholder="Username"]').value;
+    const username = document.querySelector('input[placeholder="Username"]').value;
     const password = document.querySelector('input[placeholder="Password"]').value;
-    await login(username, password);
-
+    const userData = await login(username, password);
     // Create request payload
-    setTimeout(() => {
-      console.log("User role:", user.role);
-      let count = 0;
-      const checkUserInterval = setInterval(() => {
-        count++;
-        if (count > 10) {
-          clearInterval(checkUserInterval);
-          console.error('User role is not available');
-        }
-        if (user && user.role) {
-          clearInterval(checkUserInterval); // Clear the interval
-          if (user.role === 'ADMIN') {
-            navigate('/admin/container/list');
-            window.location.reload();
-          } else {
-            navigate('/');
-            window.location.reload();
-          }
-        } else {
-          console.error('User role is not available');
-        }
-      }, 500); // Check every 500 milliseconds
-    }, 1000);
+    let count = 0;
+    if (userData && userData.role) {
+    console.log('userData:', userData);
+    if (userData.role === 'ADMIN') {
+        navigate('/admin/container/list');
+        window.location.reload();
+      } else {
+        navigate('/');
+        window.location.reload();
+      }
+    }
   };
   return (
     <div>
@@ -69,8 +60,8 @@ export const Login = () => {
           <div className="submit" onClick={() => { handleLogIn(); }}>Login</div>
         </div>
         <div className='register'>You haven't had an account yet?
-        <Link to='/register'><span >   Register here?</span></Link>
-          </div>
+          <Link to='/register'><span >   Register here?</span></Link>
+        </div>
       </div>
     </div>
   );

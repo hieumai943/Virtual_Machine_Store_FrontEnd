@@ -1,0 +1,25 @@
+.account {
+    padding: 20px;
+  }
+  
+  .columns {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .user-info, .machine-info {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-info h2, .machine-info h2 {
+    margin-bottom: 20px;
+  }
+  
+  .user-info p, .machine-info p {
+    margin: 10px 0;
+  }

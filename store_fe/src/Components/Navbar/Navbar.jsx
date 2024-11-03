@@ -34,6 +34,8 @@ export const Navbar = () => {
   const handleLogOut = () => {
     // Xử lý đăng xuất
     localStorage.removeItem('token'); // Xóa token khỏi localStorage
+    localStorage.removeItem('role');
+    localStorage.removeItem('username');
     setIsLoggedIn(false);
     navigate('/login'); // Điều hướng về trang đăng nhập
   };
