@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
-import { StoreContext } from '../Context/StoreContext';
 import { Machine } from '../Machine/Machine';
-import { all_machine } from '../Assets/all_machine';
 import { NewsLetter } from '../NewsLetter/NewsLetter';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
@@ -37,7 +35,7 @@ const right_arrow = require('../Assets/right-arrow.png');
           },
         });
         if (Array.isArray(response.data.data) ) {
-          const filteredMyData = response.data.data.filter(machine => !machine.isSample);
+          const filteredMyData = response.data.data.filter(machine => !machine.isSample && !machine.status);
           const filteredSampleData = response.data.data.filter(machine => machine.isSample);
 
           setMyAllMachine(filteredMyData);

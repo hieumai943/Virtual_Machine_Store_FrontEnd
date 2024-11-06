@@ -56,6 +56,7 @@ export const Payment = () => {
                     cpu_limit: coreCpu,
                     memory_limit: memory,
                     port: extractedPort,
+                    machine_id: machineId
                 }
                 const response2 = await axios.put("http://localhost:8082/shop/docker-compose/update", payload);
                 console.log("API response2:", response2.data);

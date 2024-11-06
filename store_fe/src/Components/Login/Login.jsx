@@ -14,6 +14,13 @@ export const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/'); // Điều hướng đến trang chủ nếu token tồn tại
+    }
+  }, [navigate]);
+  
   const handleLogIn = async (e) => {
     setIsLoading(true);
     setError('');
