@@ -36,7 +36,7 @@ export const Account = (props) => {
                       },
                     });
                     if (Array.isArray(machineResponse.data.data) ) {
-                      const filteredMyData = machineResponse.data.data.filter(machine => !machine.isSample && machine.status);
+                      const filteredMyData = machineResponse.data.data.filter(machine => machine.status);
             
                       setMyAllMachine(filteredMyData);
                     } else {
