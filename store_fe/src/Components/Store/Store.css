@@ -1,0 +1,85 @@
+.popular{
+    gap: 10px;
+    margin: 5vh 2vw 8vh 3vw  ;
+}
+.popular h1{
+    font-size: 50px;
+    font-weight: 600;
+    color: #171717;
+}
+.popular hr{
+    width: 100px;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #252525;
+}
+.popular-item{
+    margin-top: 50px;
+    gap: 30px;
+}
+.createNewVM{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 3vw;
+    cursor: pointer;
+    background-color:#90e0ef;
+    border-radius: 50px;
+    width: 18vw;
+    padding-left: 1vw;
+    margin-top: 20px;
+}
+.createNewVM a {
+    text-decoration: none;
+    color: black;
+}
+.createNewVM h2{
+    margin-left: 10px;
+}
+.createNewVM img{
+    width: 1.5vw;
+}
+.lineHR{
+    margin-top: 50px;
+}
+/* Store.css */
+slider-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+}
+
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* color: white; */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    background: none;
+}
+
+.prev-button, .prev-button-1 {
+    left: 0;
+}
+.prev-button-1, .next-button-1 {
+    position: absolute;
+    bottom: 20vh;
+    transform: translateY(-50%);
+    /* color: white; */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    background: none;
+}
+.next-button, .next-button-1 {
+    right: 0;
+}
+
+.prev-button:hover, .next-button:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}

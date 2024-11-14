@@ -44,21 +44,27 @@ export const Navbar = () => {
     <div className='navbar'>
     <Link to={"/"}><div className="nav-logo"><img src={logo}></img></div></Link>
     <ul className="nav-menu">
+            <li 
+              className={menu === "home" ? "active" : ""}
+              onClick={() => setMenu("home")}
+          >
+              <Link style={{ textDecoration: 'none' }} to='/'>HOME</Link>
+          </li>
         {isAdmin ==="customer" && (
             <li 
             className={menu === "shop" ? "active" : ""}
             onClick={() => setMenu("shop")}
         >
-            <Link style={{ textDecoration: 'none' }} to='/'>HOME</Link>
+            <Link style={{ textDecoration: 'none' }} to='/store'>STORE</Link>
         </li>
         
         )}
         {isAdmin ==="customer" && (
            <li 
-           className={menu === "home" ? "active" : ""}
-           onClick={() => setMenu("home")}
+           className={menu === "contact" ? "active" : ""}
+           onClick={() => setMenu("contact")}
        >
-           <Link style={{ textDecoration: 'none' }} to='/home'>REVIEW</Link>
+           <Link style={{ textDecoration: 'none' }} to='/contact'>REVIEW</Link>
        </li>
         
         )}

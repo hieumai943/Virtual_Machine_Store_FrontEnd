@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Login } from './Components/Login/Login';
 import { Register } from './Components/Register/Register';
-import { Home } from './Components/Home/Home';
+import { Store } from './Components/Store/Store';
 import { Navbar } from './Components/Navbar/Navbar';
 import {Cart} from './Components/Cart/Cart';
 import {NewsLetter} from './Components/NewsLetter/NewsLetter';
@@ -14,6 +14,7 @@ import { Payment } from './Components/Payment/Payment';
 import { AuthProvider } from './Components/AuthContext/AuthContext';
 import { ContainerList } from './Components/ContainerList/ContainerList';
 import { Account } from './Components/Account/Account';
+import { Home } from './Components/Home/Home';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         < Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/store" element={<Store />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/machine" element={<MachineDetail />} />
             <Route path="/create/machine" element={<MachineCreate/>} />
