@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import { NewsLetter } from '../NewsLetter/NewsLetter';
 import Slider from "react-slick";
-import {Container} from '../Container/Container';
+import { Container } from '../Container/Container';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './ContainerList.css';
@@ -20,7 +20,24 @@ export const ContainerList = (props) => {
         arrows: false, // Tắt mũi tên mặc định
     };
     const [myAllMachine, setMyAllMachine] = useState([]);
+    const [isEnabled, setIsEnabled] = useState(props.status);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [vmsPerPage] = useState(6);
 
+    // Tính toán các máy ảo cho trang hiện tại
+    const indexOfLastVM = currentPage * vmsPerPage;
+    const indexOfFirstVM = indexOfLastVM - vmsPerPage;
+    const currentVMs = myAllMachine.slice(indexOfFirstVM, indexOfLastVM);
+
+    // Tính tổng số trang
+    const totalPages = Math.ceil(myAllMachine.length / vmsPerPage);
+
+    // Thay đổi trang
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    useEffect(() => {
+        setIsEnabled(myAllMachine.status);
+    }, [myAllMachine.status]);
     useEffect(() => {
         const fetchContainers = async () => {
             try {
@@ -49,34 +66,84 @@ export const ContainerList = (props) => {
 
         fetchContainers();
     }, []);
+    const handleStatusUpdate = async (id, status) => {
+        try {
+            //   const response = await axios.post(`http://localhost:8082/api/update-status`, {
+            //     id: id,
+            //     status: status
+            //   }, {
+            //     headers: {
+            //       'Content-Type': 'application/json'
+            //     }
+            //   });
+            //   console.log('Status updated:', response.data);
+            // Cập nhật trạng thái mới trong myAllMachine
+            setMyAllMachine(prevMachines =>
+                prevMachines.map(machine =>
+                    machine.id === id ? { ...machine, status: status } : machine
+                )
+            );
+        } catch (error) {
+            console.error('Error updating status:', error);
+        }
+    };
     return (
         <div>
-            <div className='popular'>
-                <h2>Containers</h2>
-                <div className="popular-item">
-                    <div className="slider-container">
-                        <button className="prev-button" onClick={() => sliderRef.current.slickPrev()}><img src={left_arrow}></img></button>
-                        <Slider ref={sliderRef} {...settings}>
-                            {myAllMachine.map((machine, i) => (
-                                <div key={i}>
-                                    <Container
-                                        id={machine.id}
-                                        name={machine.container_name}
-                                        port={machine.port}
-                                        ram={machine.ram}
-                                        cpu={machine.cpu}
-                                        created={machine.created}
-                                        expired={machine.expired}
-                                        status={machine.status}
-                                        image = {machine.img_src}
-                                    />
+            <div className="container">
+                <h1 className="title">Virtual machine managing</h1>
+                <div className="vm-list">
+                    {currentVMs.map((vm) => (
+                        <div key={vm.id} className="vm-card">
+                            <div className="vm-header">
+                                <h2 className="vm-name">{vm.container_name}</h2>
+                                <span className={`vm-status ${vm.status}`}>
+                                    <label className="switch">
+                                        <input
+                                            type="checkbox"
+                                            checked={vm.status}
+                                            onChange={() => handleStatusUpdate(vm.id, !vm.status)}
+                                        />
+                                        <span className="slider round"></span>
+                                    </label>
+                                </span>
+                            </div>
+                            <div className="vm-content">
+                                <div className="vm-info">
+                                    <span>Port: {vm.port}</span>
+                                    <span>Start date: {vm.created}</span>
+                                    <span>RAM: {vm.ram} GB</span>
+                                    <span>Expired at: {vm.expired}</span>
+                                    <span>CPU: {vm.cpu} cores</span>
                                 </div>
-                            ))}
-                        </Slider>
-                        <button className="next-button" onClick={() => sliderRef.current.slickNext()}><img src={right_arrow}></img></button>
-                    </div>
-                    <hr className='lineHR' />
+                            </div>
+                        </div>
+                    ))}
                 </div>
+            </div>
+            <div className="pagination">
+                <button
+                    onClick={() => paginate(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="page-button nav-button"
+                >
+                    Trước
+                </button>
+                {Array.from({ length: totalPages }).map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => paginate(index + 1)}
+                        className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
+                <button
+                    onClick={() => paginate(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="page-button nav-button"
+                >
+                    Sau
+                </button>
             </div>
             <div>
                 <NewsLetter />

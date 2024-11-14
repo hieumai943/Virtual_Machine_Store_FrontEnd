@@ -29,6 +29,9 @@ const right_arrow = require('../Assets/right-arrow.png');
   const fetchMachines = async () => {
       try {
         const username = localStorage.getItem('username');
+        setTimeout(() => {
+          localStorage.clear();
+        }, 1000 * 60 * 60 * 2);
         const response = await axios.get(`http://localhost:8082/shop/machine/list?username=${username}`, {
           headers: {
             'Content-Type': 'application/json',

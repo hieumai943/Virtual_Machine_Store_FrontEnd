@@ -70,22 +70,6 @@ export const Navbar = () => {
            <Link style={{ textDecoration: 'none' }} to='/contact'>CONTACT</Link>
        </li>
         )}
-        {isAdmin === "admin" && (
-            <li 
-                className={menu === "container_list" ? "active" : ""}
-                onClick={() => setMenu("container_list")}
-            >
-                <Link style={{ textDecoration: 'none' }} to='/admin/container/list'>MACHINES MANAGE</Link>
-            </li>
-            )}
-         {isAdmin ==="customer" && (
-            <li 
-                className={menu === "container_list" ? "active" : ""}
-                onClick={() => setMenu("container_list")}
-            >
-                <Link style={{ textDecoration: 'none' }} to='/admin/container/list'>MACHINES MANAGE</Link>
-            </li>
-            )}   
         {isAdmin ==="customer" && (
              <li 
              className={menu === "container_list" ? "active" : ""}
