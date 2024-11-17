@@ -7,38 +7,42 @@ import './Home.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+const xpra_screen = require('../Assets/xpra_screen.png');
+const addition = require('../Assets/addition.png');
+const authentication = require('../Assets/authentication.png');
+const { NewsLetter } = require('../NewsLetter/NewsLetter');
 
 const vmDemos = [
-  { id: 1, name: 'Máy ảo Linux', image: '/placeholder.svg?height=400&width=600', description: 'Hiệu suất cao, bảo mật tuyệt đối' },
-  { id: 2, name: 'Máy ảo Windows', image: '/placeholder.svg?height=400&width=600', description: 'Giao diện thân thiện, đa năng' },
-  { id: 3, name: 'Máy ảo MacOS', image: '/placeholder.svg?height=400&width=600', description: 'Thiết kế đẹp, ổn định' },
+  { id: 1, name: 'Linux VM', image: xpra_screen, description: 'Friendly, versatile interface' },
+  { id: 2, name: 'Feature', image: addition, description: 'Reasonable and stable design' },
+  { id: 3, name: 'Security', image: authentication, description: 'High performance, absolute security' },
 ]
 
 const monthlyDeals = [
-  { id: 1, name: 'Gói Starter', price: '99.000đ/tháng', features: ['2 CPU', '2GB RAM', '20GB SSD', 'Băng thông không giới hạn'] },
-  { id: 2, name: 'Gói Pro', price: '199.000đ/tháng', features: ['4 CPU', '8GB RAM', '100GB SSD', 'Băng thông không giới hạn', 'Backup hàng tuần'] },
-  { id: 3, name: 'Gói Enterprise', price: '499.000đ/tháng', features: ['8 CPU', '32GB RAM', '500GB SSD', 'Băng thông không giới hạn', 'Backup hàng ngày', 'Hỗ trợ 24/7'] },
+  { id: 1, name: 'Starter Package', price: '3$/month', features: ['2 CPU', '2GB RAM', '20GB SSD'] },
+  { id: 2, name: 'Pro Package', price: '8$/month', features: ['4 CPU', '8GB RAM', '100GB SSD', , 'Backup every week'] },
+  { id: 3, name: 'Enterprise Package', price: '12$/month', features: ['8 CPU', '32GB RAM', '500GB SSD', 'Backup everyday', 'Support 24/7'] },
 ]
 
 const userFeedbacks = [
-  { id: 1, name: 'Nguyễn Văn A', comment: 'Dịch vụ máy ảo tuyệt vời, tốc độ ổn định và hỗ trợ kỹ thuật nhanh chóng!', rating: 5, avatar: '/placeholder.svg?height=50&width=50' },
-  { id: 2, name: 'Trần Thị B', comment: 'Giá cả hợp lý, nhiều gói dịch vụ để lựa chọn. Rất hài lòng với trải nghiệm sử dụng.', rating: 4, avatar: '/placeholder.svg?height=50&width=50' },
-  { id: 3, name: 'Lê Văn C', comment: 'Đội ngũ hỗ trợ chuyên nghiệp, giải quyết vấn đề nhanh chóng. Sẽ tiếp tục sử dụng lâu dài.', rating: 5, avatar: '/placeholder.svg?height=50&width=50' },
+  { id: 1, name: 'Jack Hanma', comment: 'Great virtual machine service, stable speed and fast technical support!', rating: 5, avatar: '/placeholder.svg?height=50&width=50' },
+  { id: 2, name: 'Hanma baki', comment: 'Reasonable price, many service packages to choose from. Very satisfied with the experience.', rating: 4, avatar: '/placeholder.svg?height=50&width=50' },
+  { id: 3, name: 'Nobi Nobita', comment: 'Professional support team, quick problem solving. Continuing to use long term.', rating: 5, avatar: '/placeholder.svg?height=50&width=50' },
 ]
 export const Home = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-12">Chào mừng đến với Dịch vụ Máy ảo của chúng tôi</h1>
-      
+      <h1 className="text-4xl font-bold text-center mb-12">Welcome to my Linux virtual machines store</h1>
+
       <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-6">Demo Máy ảo</h2>
+        {/* <h2 className="text-2xl font-semibold mb-6">Virtual Machine Demo</h2> */}
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
+          autoplay={{ delay: 3000 }}
           className="rounded-lg overflow-hidden"
         >
           {vmDemos.map((demo) => (
@@ -46,7 +50,7 @@ export const Home = () => {
               <div className="relative">
                 <img src={demo.image} alt={demo.name} className="w-full h-[400px] object-cover" />
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
-                  <h3 className="text-xl font-semibold">{demo.name}</h3>
+                  <h2 className="text-xl font-semibold">{demo.name}</h2>
                   <p>{demo.description}</p>
                 </div>
               </div>
@@ -54,12 +58,12 @@ export const Home = () => {
           ))}
         </Swiper>
       </section>
-      
-      <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-6">Ưu đãi Hấp dẫn Tháng này</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <section className="mb-16 animate-fadeIn">
+        <h2 className="text-2xl font-semibold mb-6">Hot Deals This Month</h2>
+        <div class="flex-container">
           {monthlyDeals.map((deal) => (
-            <div key={deal.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div key={deal.id} className="bg-white p-6 rounded-lg shadow-custom transition-all hover:scale-105">
               <h3 className="text-xl font-semibold mb-2">{deal.name}</h3>
               <p className="text-lg font-bold text-blue-600 mb-4">{deal.price}</p>
               <ul className="list-disc pl-5 space-y-2 mb-4">
@@ -68,20 +72,19 @@ export const Home = () => {
                 ))}
               </ul>
               <button className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors">
-                Đăng ký ngay
+                Register
               </button>
             </div>
           ))}
         </div>
       </section>
-      
+
       <section>
-        <h2 className="text-2xl font-semibold mb-6">Phản hồi từ Khách hàng</h2>
+        <h2 className="text-2xl font-semibold mb-6">Review from customers</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {userFeedbacks.map((feedback) => (
             <div key={feedback.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-4">
-                <img src={feedback.avatar} alt={feedback.name} className="w-12 h-12 rounded-full mr-4" />
                 <div>
                   <h4 className="font-semibold">{feedback.name}</h4>
                   <div className="flex">
@@ -96,6 +99,12 @@ export const Home = () => {
           ))}
         </div>
       </section>
+      <div className='newsletterlast'>
+      <NewsLetter />
+
+      </div>
     </div>
+    
+    
   )
 }

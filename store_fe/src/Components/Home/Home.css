@@ -1,34 +1,82 @@
-swiper-button-next,
+/* Custom styles for the homepage */
+
+
+.container {
+  max-width: 1200px;
+}
+
+h1, h2, h3, h4 {
+  color: #2c3e50;
+}
+
+/* Swiper styles */
+.swiper-button-next,
 .swiper-button-prev {
-  color: white;
+  color: #fff;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 30px 20px;
-  border-radius: 5px;
+  border-radius: 50%;
+  top: 40% !important;
+  padding: 3px 10px;
+  right: 10%;
+  font-size: 10px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 30px !important;
 }
 
 .swiper-pagination-bullet {
-  background-color: white;
+  background-color: #fff;
   opacity: 0.7;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
+  background-color: #3498db;
 }
 
-/* Hover effect for deal cards */
-.deal-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+/* Monthly deals styles */
+.bg-white {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  margin: 30px 0;
+  padding: 10px 20px 50px 20px;
+  position: relative;
 }
 
-/* Styling for user feedback cards */
-.feedback-card {
-  transition: all 0.3s ease;
+.bg-white button {
+      position: absolute;
+    width: 85%;
+    color: white;
+    padding: 10px 10px;
+    bottom: 10px;
+    margin-top: 10px;
 }
 
-.feedback-card:hover {
-  background-color: #f0f0f0;
+.text-blue-600 {
+  color: #3498db;
+}
+
+.bg-blue-500 {
+  background-color: #3498db;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: #2980b9;
+}
+
+/* User feedback styles */
+.fill-yellow-400 {
+  fill: #f1c40f;
+}
+
+.text-yellow-400 {
+  color: #f1c40f;
 }
 
 /* Responsive adjustments */
@@ -37,4 +85,53 @@ swiper-button-next,
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+  margin-top: 50px;
+}
+
+/* Additional custom styles */
+.shadow-custom {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+/* Container layout */
+.flex-container {
+  display: flex;
+  justify-content: space-between; /* Phân bố không gian đều giữa các items */
+}
+
+.relative img{
+  width: 100%;
+}
+
+.shadow-custom{
+  width: 20vw;
+  margin: 0 50px 100px 50px;
+}
+
+.newsletterlast{
 }

@@ -38,18 +38,23 @@ export const Navbar = () => {
     localStorage.removeItem('username');
     setIsLoggedIn(false);
     navigate('/login'); // Điều hướng về trang đăng nhập
+    window.location.reload();
   };
   return (
     
     <div className='navbar'>
     <Link to={"/"}><div className="nav-logo"><img src={logo}></img></div></Link>
     <ul className="nav-menu">
-            <li 
+         
+          {isAdmin != "admin" && (
+              <li 
               className={menu === "home" ? "active" : ""}
               onClick={() => setMenu("home")}
           >
               <Link style={{ textDecoration: 'none' }} to='/'>HOME</Link>
           </li>
+        
+        )}
         {isAdmin ==="customer" && (
             <li 
             className={menu === "shop" ? "active" : ""}
@@ -59,7 +64,7 @@ export const Navbar = () => {
         </li>
         
         )}
-        {isAdmin ==="customer" && (
+        {/* {isAdmin ==="customer" && (
            <li 
            className={menu === "contact" ? "active" : ""}
            onClick={() => setMenu("contact")}
@@ -67,7 +72,7 @@ export const Navbar = () => {
            <Link style={{ textDecoration: 'none' }} to='/contact'>REVIEW</Link>
        </li>
         
-        )}
+        )} */}
         {isAdmin ==="customer"  && (
            <li 
            className={menu === "contact" ? "active" : ""}
@@ -83,7 +88,15 @@ export const Navbar = () => {
          >
              <Link style={{ textDecoration: 'none' }} to='/account'>ACCOUNT</Link>
          </li>
-         )}   
+         )}  
+         {isAdmin ==="admin" && (
+             <li 
+             className={menu === "container_list" ? "active" : ""}
+             onClick={() => setMenu("container_list")}
+         >
+             <Link style={{ textDecoration: 'none' }} to='/admin/container/list'>MACHINE MANAGING</Link>
+         </li>
+         )}    
     </ul>
     <div className="nav-login-cart">
         {isLoggedIn ? (
