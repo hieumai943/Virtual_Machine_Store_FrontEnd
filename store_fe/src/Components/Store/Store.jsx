@@ -74,7 +74,9 @@ const right_arrow = require('../Assets/right-arrow.png');
         <p>You haven't created any machines yet</p>
       ) : (
         <>
+          {myAllMachine.length > 3 && (
           <button className="prev-button" onClick={() => sliderRef.current.slickPrev()}><img src={left_arrow} alt="Previous" /></button>
+          )}
           <Slider ref={sliderRef} {...settings}>
             {myAllMachine.map((machine, i) => (
               <div key={i}>
@@ -89,7 +91,9 @@ const right_arrow = require('../Assets/right-arrow.png');
               </div>
             ))}
           </Slider>
-          <button className="next-button" onClick={() => sliderRef.current.slickNext()}><img src={right_arrow} alt="Next" /></button>
+          {myAllMachine.length > 3 && (
+            <button className="next-button" onClick={() => sliderRef.current.slickNext()}><img src={right_arrow} alt="Next" /></button>
+          )}
         </>
       )}
     </div>
@@ -117,9 +121,7 @@ const right_arrow = require('../Assets/right-arrow.png');
             <button className="next-button-1" onClick={() => sliderRef1.current.slickNext()}><img src = {right_arrow}></img></button>
         </div>
       </div>
-      <div>
-        <NewsLetter />
-      </div>
+      
     </div>
   );
 };

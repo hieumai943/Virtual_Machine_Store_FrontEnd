@@ -145,9 +145,6 @@ export const ContainerList = (props) => {
                     Sau
                 </button>
             </div>
-            <div>
-                <NewsLetter />
-            </div>
         </div>
     );
 };

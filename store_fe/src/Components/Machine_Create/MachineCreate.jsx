@@ -128,7 +128,7 @@ export const MachineCreate = () => {
             ) : (
               <>
                 <p>Machine created successfully!</p>
-                <Link to={`/`}><button onClick={() => setShowPopup(false)}>Close</button></Link>
+                <Link to={`/store`}><button onClick={() => setShowPopup(false)}>Close</button></Link>
               </>
             )}
           </div>
