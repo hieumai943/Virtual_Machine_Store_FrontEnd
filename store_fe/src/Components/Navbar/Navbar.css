@@ -68,4 +68,6 @@
 .nav-logo img{
     width: 5vw;
 }
-
+.nav-menu li.active.red-text a {
+    color: red;
+  }

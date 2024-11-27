@@ -1,7 +1,8 @@
-import React from 'react'
+import React , { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { Star } from 'lucide-react'
+import { Link } from 'react-router-dom';
 import './Home.css'
 // Import Swiper styles
 import 'swiper/css'
@@ -29,7 +30,16 @@ const userFeedbacks = [
   { id: 2, name: 'Hanma baki', comment: 'Reasonable price, many service packages to choose from. Very satisfied with the experience.', rating: 4, avatar: '/placeholder.svg?height=50&width=50' },
   { id: 3, name: 'Nobi Nobita', comment: 'Professional support team, quick problem solving. Continuing to use long term.', rating: 5, avatar: '/placeholder.svg?height=50&width=50' },
 ]
+
+
 export const Home = () => {
+  const [hasToken, setHasToken] = useState(false);
+
+useEffect(() => {
+  const token = localStorage.getItem('token');
+  setHasToken(!!token); // Convert token to boolean
+}, []);
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-center mb-12">Welcome to my Linux virtual machines store</h1>
@@ -71,9 +81,12 @@ export const Home = () => {
                   <li key={index}>{feature}</li>
                 ))}
               </ul>
-              <button className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors">
-                Register
-              </button>
+              
+              <Link to={hasToken ? '/store' : '/login'}>
+        <button className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors">
+          {hasToken ? 'Go to Store' : 'Register'}
+        </button>
+      </Link>
             </div>
           ))}
         </div>

@@ -1,0 +1,67 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .titlecontact {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .contactInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .contactInfo > div {
+    flex: 1 1 calc(50% - 20px); /* 50% width minus the gap */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  .contactItem {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(25% - 15px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contactItem h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .contactItem p,
+  .contactItem a {
+    color: #666;
+    margin: 10px;
+    text-decoration: none;
+  }
+  
+  .contactItem a:hover {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 1024px) {
+    .contactItem {
+      width: calc(50% - 10px);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .contactItem {
+      width: 100%;
+    }
+  }
+  
+  

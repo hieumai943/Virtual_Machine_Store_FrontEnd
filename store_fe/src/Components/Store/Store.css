@@ -1,6 +1,6 @@
 .popular{
     gap: 10px;
-    margin: 5vh 2vw 8vh 3vw  ;
+    margin: 5vh 2vw 8vh 5vw  ;
 }
 .popular h1{
     font-size: 50px;
@@ -63,7 +63,7 @@ slider-container {
 }
 
 .prev-button, .prev-button-1 {
-    left: -50px;
+    left: -70px;
 }
 .prev-button-1, .next-button-1 {
     position: absolute;

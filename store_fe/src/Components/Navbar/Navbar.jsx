@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate , useLocation } from 'react-router-dom';
 const cart_icon = require('../Assets/cart_icon.png');
 const logo = require('../Assets/hieuhieu.jpg');
 
@@ -11,6 +11,7 @@ export const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); 
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -48,7 +49,7 @@ export const Navbar = () => {
          
           {isAdmin != "admin" && (
               <li 
-              className={menu === "home" ? "active" : ""}
+              className={location.pathname === "/" ? "active red-text" : ""}
               onClick={() => setMenu("home")}
           >
               <Link style={{ textDecoration: 'none' }} to='/'>HOME</Link>
@@ -57,7 +58,7 @@ export const Navbar = () => {
         )}
         {isAdmin ==="customer" && (
             <li 
-            className={menu === "shop" ? "active" : ""}
+            className={location.pathname.includes("/store") ? "active red-text" : ""}
             onClick={() => setMenu("shop")}
         >
             <Link style={{ textDecoration: 'none' }} to='/store'>STORE</Link>
@@ -75,7 +76,7 @@ export const Navbar = () => {
         )} */}
         {isAdmin ==="customer"  && (
            <li 
-           className={menu === "contact" ? "active" : ""}
+           className={location.pathname.includes("/contact") ? "active red-text" : ""}
            onClick={() => setMenu("contact")}
        >
            <Link style={{ textDecoration: 'none' }} to='/contact'>CONTACT</Link>
@@ -83,7 +84,7 @@ export const Navbar = () => {
         )}
         {isAdmin ==="customer" && (
              <li 
-             className={menu === "container_list" ? "active" : ""}
+             className={location.pathname.includes("/account") ? "active red-text" : ""}
              onClick={() => setMenu("container_list")}
          >
              <Link style={{ textDecoration: 'none' }} to='/account'>ACCOUNT</Link>

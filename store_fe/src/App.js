@@ -15,6 +15,7 @@ import { AuthProvider } from './Components/AuthContext/AuthContext';
 import { ContainerList } from './Components/ContainerList/ContainerList';
 import { Account } from './Components/Account/Account';
 import { Home } from './Components/Home/Home';
+import { Contact } from './Components/Contact/Contact';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/machine/:machineId/payment" element={<Payment  />} />
             <Route path="/admin/container/list" element={<ContainerList  />} />
             <Route path="/account" element={<Account  />} />
+            <Route path="/contact" element={<Contact  />} />
           </Routes>
         <Footer/>
       </BrowserRouter>

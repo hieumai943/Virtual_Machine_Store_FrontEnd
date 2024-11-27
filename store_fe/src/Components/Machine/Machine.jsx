@@ -8,7 +8,7 @@ export const Machine = (props) => {
     
     return (
         <div className="item">
-            <Link to={`/machine/${props.id}`}><img src={props.image} alt="" style={{width: '30vw'}}/></Link>
+            <Link to={`/machine/${props.id}`}><img src={props.image} alt="" style={{width: '28vw' , height: '15vw'}}/></Link>
             <div style={{margin: '10px 0'}}><span className="title">NAME : </span><span>{props.name}</span></div>
             <div style={{margin: '10px 0'}}><span className="title">DESCRIPTION: </span><span>{props.description}</span></div>
             <div style={{margin: '10px 0'}}><span className="title">OLD PRICE: </span> <span className="item-price-old">
